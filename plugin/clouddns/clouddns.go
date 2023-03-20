@@ -168,9 +168,14 @@ func updateZoneFromRRS(rrs *gcp.ResourceRecordSetsListResponse, z *file.Zone) er
 			if err != nil {
 				return fmt.Errorf("failed to parse resource record: %v", err)
 			}
+
+			err = z.Insert(r)
+			if err != nil {
+				return fmt.Errorf("failed to insert record: %v", err)
+			}
+
 		}
 
-		z.Insert(r)
 	}
 	return nil
 }
