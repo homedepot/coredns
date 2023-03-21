@@ -173,7 +173,6 @@ func updateZoneFromRRS(rrs *gcp.ResourceRecordSetsListResponse, z *file.Zone) er
 				return fmt.Errorf("failed to insert record: %v", err)
 			}
 		}
-
 	}
 	return nil
 }
